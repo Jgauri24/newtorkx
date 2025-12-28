@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import GoogleLoginComp from '../../components/GoogleLogin/GoogleLogin'
 
 const SignUp = () => {
     return (
@@ -32,7 +33,7 @@ const SignUp = () => {
 
 
                 </div>
-                <div className="">Google Login Button</div>
+                <div className=""><GoogleLoginComp/></div>
             </div>
             <div
             className='mt-4 mb-10'>Already on NetworkX? <Link to="/login" className='text-blue-800 cursor-pointer'>Sign In</Link></div>
