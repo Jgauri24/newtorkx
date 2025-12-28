@@ -10,10 +10,10 @@ const LandingPage = () => {
                 <div className="text-3xl md:text-4xl text-gray-700">
                     Discover your perfect role and shape your future
                 </div>
-                <div className="mt-6  px-6 py-3 flex justify-center  rounded-3xl w-[70%] text-white cursor-pointer "><GoogleLoginComp/></div>
-                <div className="mt-3 px-6 py-3 bg-white rounded-3xl flex items-center w-[70%] justify-center text-black hover:bg-gray-100 border-2 cursor-pointer">
+                <div className="mt-6  px-6 py-3  rounded-3xl w-[70%] text-white cursor-pointer "><GoogleLoginComp/></div>
+                <Link to={"/login"} className="mt-3 px-6 py-3 bg-white rounded-3xl flex items-center w-[70%] justify-center text-black hover:bg-gray-100 border-2 cursor-pointer">
                     Sign In with Email
-                </div>
+                </Link>
                 <div className="text-sm w-[70%] mt-6 text-center">
                     By clicking Continue to join or sign in, you agree to <span className='text-blue-800 cursor-pointer hover:underline'>NetworkX's User Agreement</span>,<span className='text-blue-800 cursor-pointer hover:underline'> Privacy Policy</span>, and
                     <span className='text-blue-800 cursor-pointer hover:underline'> Cookie Policy</span>.
