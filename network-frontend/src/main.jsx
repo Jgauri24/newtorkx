@@ -12,7 +12,7 @@ createRoot(document.getElementById('root')).render(
         <App />
       </BrowserRouter>
     </GoogleOAuthProvider>
-    console.log("CLIENT ID:", import.meta.env.VITE_GOOGLE_AUTH_KEY);
+   
 
 
   </StrictMode>,

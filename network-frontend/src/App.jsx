@@ -6,6 +6,8 @@ import SignUp from "./pages/SignUp/SignUp";
 import Navbar2 from "./components/Navbar2/Navbar2";
 import Login from "./pages/Login/Login";
 import Feed from "./pages/Feed/Feed";
+import People from "./pages/People/People";
+
 export default function App() {
   const isLogin = true;
   return (
@@ -19,6 +21,7 @@ export default function App() {
       <Route path="/signUp" element={<SignUp/>} />
       <Route path="/login" element={<Login/>}/>
       <Route path="/feeds" element={<Feed/>}/>
+      <Route path="/people" element={<People/>}/>
       </Routes>
 
       <Footer/>
