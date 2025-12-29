@@ -17,9 +17,9 @@ const Navbar2 = () => {
   return (
     <div className="bg-white h-13 flex justify-between py-1 px-5 xl:px-50 fixed top-0 w-[100%] z-1000">
       <div className="flex gap-2 items-center">
-        <div>
+        <Link to="/feeds">
           <img src={logo} alt="logo" className="w-12 h-12" />
-        </div>
+        </Link>
         <div className="relative">
             <input className="searchInput w-70 bg-gray-100 rounded-sm h-10 px-4" type="text" placeholder="search" />
            {
@@ -54,17 +54,17 @@ const Navbar2 = () => {
 <div className={`text-sm text-gray-500 ${location.pathname==="/messages"?"border-b-3":""}`}>Message</div>
 
 </Link>
-<Link to="/notifications" className="flex flex-col items-center cursor-pointer">
+<Link to="/notifications"className="flex flex-col items-center cursor-pointer">
 <div><NotificationsIcon sx={{color:location.pathname==="/notifications"?"black":"gray"}}/><span className="p-1 rounded-full text-sm bg-red-700 text-white">1</span>
 </div>
 <div className={`text-sm text-gray-500 ${location.pathname==="/notifications"?"border-b-3":""}`}>Notification</div>
 
 </Link>
-<div className="flex flex-col items-center cursor-pointer">
+<Link to={`/profile/jguh`} className="flex flex-col items-center cursor-pointer">
 <img  className="w-9 h-9 rounded-full" src={prof} alt="profileimg" />
 
 
-</div>
+</Link>
       </div>
     </div>
   );

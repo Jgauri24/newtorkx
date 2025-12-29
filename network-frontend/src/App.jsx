@@ -7,7 +7,9 @@ import Navbar2 from "./components/Navbar2/Navbar2";
 import Login from "./pages/Login/Login";
 import Feed from "./pages/Feed/Feed";
 import People from "./pages/People/People";
-
+import Resume from "./pages/Resume/Resume";
+import Messages from "./pages/Messages/Messages";
+import Profile from "./pages/Profile/Profile";
 export default function App() {
   const isLogin = true;
   return (
@@ -22,6 +24,9 @@ export default function App() {
       <Route path="/login" element={<Login/>}/>
       <Route path="/feeds" element={<Feed/>}/>
       <Route path="/people" element={<People/>}/>
+      <Route path="/resume" element={<Resume/>}/>
+      <Route path="/messages" element={<Messages/>}/>
+      <Route path="/profile/:id" element={<Profile/>}/>
       </Routes>
 
       <Footer/>
