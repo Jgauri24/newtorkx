@@ -6,12 +6,12 @@ import ThumbUpOutlineIcon from "@mui/icons-material/ThumbUpOutlined";
 import ModeCommentIcon from "@mui/icons-material/ModeComment";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import SendIcon from "@mui/icons-material/Send";
-const Post = () => {
+const Post = (prof) => {
   const [seeMore, setSeeMore] = useState(false);
   const handleSendCmt = (e) => {
     e.preventDefault();
   };
-  const [comment,setComment]=useState(false)
+  const [comment, setComment] = useState(false);
   const desc = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae et minima obcaecati excepturi? Excepturi fugiat atque officia dolorum itaque reprehenderit asperiores esse sunt rem quod, non, aspernatur magnam accusantium. Vitae doloribus commodi reprehenderit fugiat dolorum distinctio repudiandae similique autem natus esse voluptatibus a dolore quisquam illum nisi libero, eius placeat.`;
 
   return (
@@ -54,6 +54,7 @@ const Post = () => {
           <div className="text-sm text-gray-600">1 Comments</div>
         </div>
       </div>
+      {!prof &&
       <div
         className="flex p-1
       "
@@ -62,7 +63,10 @@ const Post = () => {
           <ThumbUpIcon sx={{ fontSize: 22, color: "blue" }} />
           <span className="">Like</span>
         </div>
-        <div onClick={()=>setComment(prev=>!prev)} className="w-[33%] justify-center flex gap-2 items-center border-r-1 border-gray-100 p-2 cursor-pointer hover:bg-gray-100">
+        <div
+          onClick={() => setComment((prev) => !prev)}
+          className="w-[33%] justify-center flex gap-2 items-center border-r-1 border-gray-100 p-2 cursor-pointer hover:bg-gray-100"
+        >
           <ModeCommentIcon sx={{ fontSize: 22 }} />
           <span className="">Comment</span>
         </div>
@@ -70,44 +74,48 @@ const Post = () => {
           <SendIcon sx={{ fontSize: 22 }} />
           <span className="">Send</span>
         </div>
-      </div>
+      </div>}
       {/* comment section */}
-      {comment && <div className="p-4 w-full">
-        <div className="flex gap-2 items-center">
-          <img
-            src={profile}
-            alt=""
-            className="rounded-full w-12 h-12 border-2 border-white cursor-pointer"
-          />
-          <form className="w-full flex gap-2 " onSubmit={handleSendCmt}>
-            <input
-              placeholder="Add a comment..."
-              className="w-full border-1 py-3 px-5 rounded-3xl hover:bg-gray-100"
-              type="text"
+      {comment && (
+        <div className="p-4 w-full">
+          <div className="flex gap-2 items-center">
+            <img
+              src={profile}
+              alt=""
+              className="rounded-full w-12 h-12 border-2 border-white cursor-pointer"
             />
-            <button type="submit" className="cursor-pointer">
-              <SendIcon />
-            </button>
-          </form>
-        </div>
-        {/* comments appear */}
-       <div className="w-full p-4">
-          <div className="my-4 ">
-            <div className="flex gap-1">
-              <img
-                src={profile}
-                alt="post"
-                className="rounded-full object-cover w-10 h-10 border-2 border-white cursor-pointer"
+            <form className="w-full flex gap-2 " onSubmit={handleSendCmt}>
+              <input
+                placeholder="Add a comment..."
+                className="w-full border-1 py-3 px-5 rounded-3xl hover:bg-gray-100"
+                type="text"
               />
-              <div className="cursor-pointer">
-                <div className="text-md">Dummy User</div>
-                <div className="text-sm text-gray-500">SDE-II Eng. @Amazon</div>
+              <button type="submit" className="cursor-pointer">
+                <SendIcon />
+              </button>
+            </form>
+          </div>
+          {/* comments appear */}
+          <div className="w-full p-4">
+            <div className="my-4 ">
+              <div className="flex gap-1">
+                <img
+                  src={profile}
+                  alt="post"
+                  className="rounded-full object-cover w-10 h-10 border-2 border-white cursor-pointer"
+                />
+                <div className="cursor-pointer">
+                  <div className="text-md">Dummy User</div>
+                  <div className="text-sm text-gray-500">
+                    SDE-II Eng. @Amazon
+                  </div>
+                </div>
               </div>
+              <div className="px-11 my-1">Hi this is so good</div>
             </div>
-            <div className="px-11 my-1">Hi this is so good</div>
           </div>
         </div>
-      </div>}
+      )}
     </Card>
   );
 };

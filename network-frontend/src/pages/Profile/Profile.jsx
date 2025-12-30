@@ -1,10 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import Advertisment from "../../components/Advertisment/Advertisment";
 import Card from "../../components/Card/Card";
 import profile from "../../assets/profile.jpg";
 import SendIcon from "@mui/icons-material/Send";
 import EditIcon from "@mui/icons-material/Edit";
+import Post from "../../components/Post/Post"
+import AddIcon from "@mui/icons-material/Add"
+import Modal from "../../components/Modal/Modal";
+import ImgModal from "../../components/ImgModal/ImgModal";
+import EditInfo from "../../components/EditInfo/EditInfo";
 const Profile = () => {
+  const [imgModal,setImgModal]=useState(false)
+  const [circleImg,setCircleImg]=useState(true)
+  const [infoModal,setInfoModal]=useState(false)
+  const handleInfoModal=()=>{
+    setInfoModal(prev=>!prev)
+  }
+  const handleImgModalOpenClose=()=>{
+    setImgModal(prev=>!prev)
+  }
+  const handleOnEditCvr=()=>{
+    setImgModal(true)
+    setCircleImg(false)
+  }
+  const handleCircleImgOpen=()=>{
+    setImgModal(true)
+    setCircleImg(true)
+  }
+  
   return (
     <div className="px-5 xl:px-50 py-5 mt-5 flex flex-col gap-5 w-full pt-12 bg-gray-100">
       <div className="flex justify-between">
@@ -14,7 +37,7 @@ const Profile = () => {
             <Card padding={0}>
               <div className="w-full h-fit">
                 <div className="relative w-full h-[200px]">
-                  <div className="absolute cursor-pointer top-3 right-3 z-20 w-[35px] flex justify-center items-center h-[35px] rounded-full p-3 bg-white">
+                  <div onClick={()=>handleOnEditCvr()} className="absolute cursor-pointer top-3 right-3 z-20 w-[35px] flex justify-center items-center h-[35px] rounded-full p-3 bg-white">
                     <EditIcon />
                   </div>
                   <img
@@ -22,7 +45,7 @@ const Profile = () => {
                     alt=""
                     className="w-full h-[200px] rounded-tr-lg rounded-tl-lg"
                   />
-                  <div className="absolute object-cover top-24 left-6 z-10">
+                  <div onClick={handleCircleImgOpen}className="absolute object-cover top-24 left-6 z-10">
                     <img
                       src={profile}
                       alt=""
@@ -30,8 +53,9 @@ const Profile = () => {
                     />
                   </div>
                 </div>
-                <div className="m-10 relative px-8 py-2">
-                  <div className="absolute cursor-pointer top-0 right-3 z-20 w-[35px] flex justify-center items-center h-[35px] rounded-full p-3 bg-white">
+
+                <div className="m-10 relative py-2">
+                  <div onClick={handleInfoModal}className="absolute cursor-pointer top-0 right-3 z-20 w-[35px] flex justify-center items-center h-[35px] rounded-full p-3 bg-white">
                     <EditIcon />
                   </div>
                   <div className="w-full">
@@ -66,30 +90,28 @@ const Profile = () => {
                 </div>
               </div>
             </Card>
-          </div>
+        </div>
           <div className="mt-5">
             <Card padding={1}>
-              <div className="relative flex flex-col  justify-between  gap-3">
+              <div className=" flex justify-between items-center">
                 <div className="text-xl">About</div>
-                <div className="absolute cursor-pointer  right-5 z-20 w-[35px] flex justify-center items-center h-[35px] rounded-full p-3 ">
+             
+                <div className="cursor-pointer ">
                   <EditIcon />
+                </div>
                 </div>
                 <div className="text-gray-700 text-md w-[80%]">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Laudantium ea rerum at laboriosam ex aliquam, pariatur dolor
-                  aspernatur perspiciatis tempore, voluptatibus cum, accusamus
-                  quaerat eligendi fugit. Reiciendis ex architecto deserunt quae
-                  ab inventore aliquid modi asperiores repellat excepturi.
-                  Suscipit nisi temporibus unde. Provident minus cum
-                  voluptatibus non accusamus in numquam!
                 </div>
-              </div>
+           
             </Card>
-          </div>
+            </div>
+          
           <div className="mt-5">
             <Card padding={1}>
-              <div className="flex flex-col justify-between items-center">
+              <div className="flex  justify-between items-center ">
                 <div className="text-xl">Skills</div>
+                </div>
                 <div className="text-gray-700 text-md my-2 w-full flex gap-4 flex-wrap">
                   <div className="cursor-pointer p-1 border-1 text-blue-800 rounded-lg font-semibold">
                     NodeJS
@@ -101,10 +123,62 @@ const Profile = () => {
                     JavaScript
                   </div>
                 </div>
-              </div>
+            
             </Card>
+         
           </div>
+          <div className="mt-5">
+            <Card padding={1}>
+              <div className="flex justify-between items-center">
+                <div className="text-xl">Activities</div>
+                </div>
+                <div className="cursor-pointer px-3 py-1 w-fit border-1 rounded-4xl bg-green-800 text-white font-semibold">Posts</div>
+                {/* parent div for scrollable activity */}
+                <div className="overflow-x-auto my-2 flex gap-1 overflow-y-hidden w-full">
+<div className="cursor-pointer shrink-0 w-[350px]">
+  <Post prof={1}/>
+  
+</div>
+<div className="cursor-pointer shrink-0 w-[350px]">
+  <Post prof={1}/>
+  
+</div>
+<div className="cursor-pointer shrink-0 w-[350px]">
+  <Post prof={1}/>
+  
+</div>
+
+                </div>
+            
+            </Card>
+            </div>
+         
+          <div className="mt-5">
+            <Card padding={1}>
+            <div className="flex  justify-between items-center">
+            <div className="text-xl">Experiences</div>
+     
+            <div className="cursor-pointer"><AddIcon/></div>
+            </div>
+              <div className="mt-5">
+                <div className="p-2 border-t-1 border-gray-300 flex justify-between">
+                  <div>
+                    <div className="text-lg">DSE Engineer | Full Stack Engineer</div>
+                    <div className="text-sm">Amazon</div>
+                    <div className="text-sm text-gray-500">March 2022, Present</div>
+                    <div className="text-sm text-gray-500">Delhi, India</div>
+                  </div>
+               
+                <div className="cursor-pointer"><EditIcon/></div>
+              </div>
+              </div>
+        
+            </Card>
+      
+            </div>
+        
         </div>
+
         {/* right side */}
         <div className="hidden md:flex md:w-[28%]">
           <div className="sticky top-19">
@@ -112,7 +186,17 @@ const Profile = () => {
           </div>
         </div>
       </div>
-    </div>
+    {imgModal && <Modal title="Upload Image" closeModal={handleImgModalOpenClose}>
+    <ImgModal isCircle={circleImg}/>
+ </Modal>}
+    {
+       infoModal && 
+       <Modal title="Edit Info" closeModal={handleInfoModal}>
+            <EditInfo/>
+         </Modal>
+          
+    } 
+      </div>
   );
 };
 
