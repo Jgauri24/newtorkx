@@ -6,7 +6,7 @@ import ThumbUpOutlineIcon from "@mui/icons-material/ThumbUpOutlined";
 import ModeCommentIcon from "@mui/icons-material/ModeComment";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import SendIcon from "@mui/icons-material/Send";
-const Post = (prof) => {
+const Post = ({prof}) => {
   const [seeMore, setSeeMore] = useState(false);
   const handleSendCmt = (e) => {
     e.preventDefault();

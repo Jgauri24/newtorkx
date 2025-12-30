@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import Advertisment from "../../components/Advertisment/Advertisment";
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import Card from "../../components/Card/Card";
 import profile from "../../assets/profile.jpg";
 import SendIcon from "@mui/icons-material/Send";
@@ -9,27 +11,45 @@ import AddIcon from "@mui/icons-material/Add"
 import Modal from "../../components/Modal/Modal";
 import ImgModal from "../../components/ImgModal/ImgModal";
 import EditInfo from "../../components/EditInfo/EditInfo";
+import AboutModal from "../../components/AboutModal/AboutModal";
+import ExpModal from "../../components/ExpModal/ExpModal";
+import MsgModal from "../../components/MsgModal/MsgModal";
+
 const Profile = () => {
-  const [imgModal,setImgModal]=useState(false)
-  const [circleImg,setCircleImg]=useState(true)
-  const [infoModal,setInfoModal]=useState(false)
-  const handleInfoModal=()=>{
-    setInfoModal(prev=>!prev)
+  const { id } = useParams();
+  const [imgModal, setImgModal] = useState(false)
+  const [circleImg, setCircleImg] = useState(true)
+  const [infoModal, setInfoModal] = useState(false)
+  const [aboutModal, setAboutModal] = useState(false)
+  const [expModal, setExpModal] = useState(false)
+  const [msgModal, setMsgModal] = useState(false)
+  const handleMsgModal = () => {
+    setMsgModal(prev => !prev)
   }
-  const handleImgModalOpenClose=()=>{
-    setImgModal(prev=>!prev)
+  const handleInfoModal = () => {
+    setInfoModal(prev => !prev)
   }
-  const handleOnEditCvr=()=>{
+  const handleImgModalOpenClose = () => {
+    setImgModal(prev => !prev)
+  }
+  const handleAbout = () => {
+    setAboutModal(prev => !prev)
+  }
+  const handleExpModal = () => {
+    setExpModal(prev => !prev)
+  }
+
+  const handleOnEditCvr = () => {
     setImgModal(true)
     setCircleImg(false)
   }
-  const handleCircleImgOpen=()=>{
+  const handleCircleImgOpen = () => {
     setImgModal(true)
     setCircleImg(true)
   }
-  
+
   return (
-    <div className="px-5 xl:px-50 py-5 mt-5 flex flex-col gap-5 w-full pt-12 bg-gray-100">
+    <div className="max-w-7xl mx-auto px-5 pt-20 pb-8 w-full bg-gray-100">
       <div className="flex justify-between">
         {/* left side main */}
         <div className="w-full md:w-[70%]">
@@ -37,7 +57,7 @@ const Profile = () => {
             <Card padding={0}>
               <div className="w-full h-fit">
                 <div className="relative w-full h-[200px]">
-                  <div onClick={()=>handleOnEditCvr()} className="absolute cursor-pointer top-3 right-3 z-20 w-[35px] flex justify-center items-center h-[35px] rounded-full p-3 bg-white">
+                  <div onClick={() => handleOnEditCvr()} className="absolute cursor-pointer top-3 right-3 z-20 w-[35px] flex justify-center items-center h-[35px] rounded-full p-3 bg-white">
                     <EditIcon />
                   </div>
                   <img
@@ -45,7 +65,7 @@ const Profile = () => {
                     alt=""
                     className="w-full h-[200px] rounded-tr-lg rounded-tl-lg"
                   />
-                  <div onClick={handleCircleImgOpen}className="absolute object-cover top-24 left-6 z-10">
+                  <div onClick={handleCircleImgOpen} className="absolute object-cover top-24 left-6 z-10">
                     <img
                       src={profile}
                       alt=""
@@ -55,7 +75,7 @@ const Profile = () => {
                 </div>
 
                 <div className="m-10 relative py-2">
-                  <div onClick={handleInfoModal}className="absolute cursor-pointer top-0 right-3 z-20 w-[35px] flex justify-center items-center h-[35px] rounded-full p-3 bg-white">
+                  <div onClick={handleInfoModal} className="absolute cursor-pointer top-0 right-3 z-20 w-[35px] flex justify-center items-center h-[35px] rounded-full p-3 bg-white">
                     <EditIcon />
                   </div>
                   <div className="w-full">
@@ -78,7 +98,7 @@ const Profile = () => {
                         </div>
                       </div>
                       <div className="my-5 flex gap-4">
-                        <div className="cursor-pointer p-1 border-2 text-blue-800 rounded-lg font-semibold">
+                        <div onClick={handleMsgModal} className="cursor-pointer p-1 border-2 text-blue-800 rounded-lg font-semibold">
                           Message
                         </div>
                         <div className="cursor-pointer p-1 border-2 text-blue-800 rounded-lg font-semibold">
@@ -90,76 +110,77 @@ const Profile = () => {
                 </div>
               </div>
             </Card>
-        </div>
+          </div>
           <div className="mt-5">
             <Card padding={1}>
               <div className=" flex justify-between items-center">
                 <div className="text-xl">About</div>
-             
-                <div className="cursor-pointer ">
+
+                <div onClick={handleAbout} className="cursor-pointer ">
                   <EditIcon />
                 </div>
-                </div>
-                <div className="text-gray-700 text-md w-[80%]">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
-           
+              </div>
+              <div className="text-gray-700 text-md w-[80%]">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+
             </Card>
-            </div>
-          
+          </div>
+
           <div className="mt-5">
             <Card padding={1}>
               <div className="flex  justify-between items-center ">
                 <div className="text-xl">Skills</div>
+              </div>
+              <div className="text-gray-700 text-md my-2 w-full flex gap-4 flex-wrap">
+                <div className="cursor-pointer p-1 border-1 text-blue-800 rounded-lg font-semibold">
+                  NodeJS
                 </div>
-                <div className="text-gray-700 text-md my-2 w-full flex gap-4 flex-wrap">
-                  <div className="cursor-pointer p-1 border-1 text-blue-800 rounded-lg font-semibold">
-                    NodeJS
-                  </div>
-                  <div className="cursor-pointer p-1 border-1 text-blue-800 rounded-lg font-semibold">
-                    Express
-                  </div>
-                  <div className="cursor-pointer p-1 border-1 text-blue-800 rounded-lg font-semibold">
-                    JavaScript
-                  </div>
+                <div className="cursor-pointer p-1 border-1 text-blue-800 rounded-lg font-semibold">
+                  Express
                 </div>
-            
+                <div className="cursor-pointer p-1 border-1 text-blue-800 rounded-lg font-semibold">
+                  JavaScript
+                </div>
+              </div>
+
             </Card>
-         
+
           </div>
           <div className="mt-5">
             <Card padding={1}>
               <div className="flex justify-between items-center">
                 <div className="text-xl">Activities</div>
-                </div>
-                <div className="cursor-pointer px-3 py-1 w-fit border-1 rounded-4xl bg-green-800 text-white font-semibold">Posts</div>
-                {/* parent div for scrollable activity */}
-                <div className="overflow-x-auto my-2 flex gap-1 overflow-y-hidden w-full">
-<div className="cursor-pointer shrink-0 w-[350px]">
-  <Post prof={1}/>
-  
-</div>
-<div className="cursor-pointer shrink-0 w-[350px]">
-  <Post prof={1}/>
-  
-</div>
-<div className="cursor-pointer shrink-0 w-[350px]">
-  <Post prof={1}/>
-  
-</div>
+              </div>
+              <div className="cursor-pointer px-3 py-1 w-fit border-1 rounded-4xl bg-green-800 text-white font-semibold">Posts</div>
+              {/* parent div for scrollable activity */}
+              <div className="overflow-x-auto my-2 flex gap-1 overflow-y-hidden w-full">
+                <Link to={`profile/${id}/activities/111`} className="cursor-pointer shrink-0 w-[350px] h-[550px]">
+                  <Post prof={1} />
 
-                </div>
-            
+                </Link>
+                <Link to={`profile/${id}/activities/112`} className="cursor-pointer shrink-0 w-[350px] h-[550px]">
+                  <Post prof={1} />
+
+                </Link>
+                <Link to={`profile/${id}/activities/113`} className="cursor-pointer shrink-0 w-[350px] h-[550px]">
+                  <Post prof={1} />
+
+                </Link>
+              </div>
+              <div className="w-full flex justify-center items-center">
+                <Link to={`/profile/${id}/activities`} className="p-2 rounded-xl cursor-pointer hover:bg-gray-300">Show All Posts<ArrowRightAltIcon /></Link>
+              </div>
             </Card>
-            </div>
-         
+          </div>
+
           <div className="mt-5">
             <Card padding={1}>
-            <div className="flex  justify-between items-center">
-            <div className="text-xl">Experiences</div>
-     
-            <div className="cursor-pointer"><AddIcon/></div>
-            </div>
+              <div className="flex  justify-between items-center">
+                <div className="text-xl">Experiences</div>
+
+                <div className="cursor-pointer" onClick={handleExpModal}><AddIcon /></div>
+              </div>
               <div className="mt-5">
                 <div className="p-2 border-t-1 border-gray-300 flex justify-between">
                   <div>
@@ -168,15 +189,15 @@ const Profile = () => {
                     <div className="text-sm text-gray-500">March 2022, Present</div>
                     <div className="text-sm text-gray-500">Delhi, India</div>
                   </div>
-               
-                <div className="cursor-pointer"><EditIcon/></div>
+
+                  <div className="cursor-pointer"><EditIcon /></div>
+                </div>
               </div>
-              </div>
-        
+
             </Card>
-      
-            </div>
-        
+
+          </div>
+
         </div>
 
         {/* right side */}
@@ -186,17 +207,32 @@ const Profile = () => {
           </div>
         </div>
       </div>
-    {imgModal && <Modal title="Upload Image" closeModal={handleImgModalOpenClose}>
-    <ImgModal isCircle={circleImg}/>
- </Modal>}
-    {
-       infoModal && 
-       <Modal title="Edit Info" closeModal={handleInfoModal}>
-            <EditInfo/>
-         </Modal>
-          
-    } 
-      </div>
+      {imgModal && <Modal title="Upload Image" closeModal={handleImgModalOpenClose}>
+        <ImgModal isCircle={circleImg} />
+      </Modal>}
+      {
+        infoModal &&
+        <Modal title="Edit Info" closeModal={handleInfoModal}>
+          <EditInfo />
+        </Modal>
+
+      }
+      {
+        aboutModal && <Modal title="Edit About" closeModal={handleAbout}>
+          <AboutModal />
+        </Modal>
+      }
+      {
+        expModal && <Modal title="Add Experiences" closeModal={handleExpModal}>
+          <ExpModal />
+        </Modal>
+      }
+      {
+        msgModal && <Modal title="Send Message" closeModal={handleMsgModal}>
+          <MsgModal />
+        </Modal>
+      }
+    </div>
   );
 };
 

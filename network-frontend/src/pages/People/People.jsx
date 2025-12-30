@@ -18,9 +18,9 @@ const People = () => {
             onClick={handleConnect}
             className={`p-1 border-1 rounded-lg border-gray-300 cursor-pointer ${
               text === "Engage in professional networking"
-                ? "bg-blue-900 text-white"
-                : ""
-            }`}
+              ? "bg-blue-900 text-white"
+              : ""
+              }`}
           >
             Connections
           </div>
@@ -28,7 +28,7 @@ const People = () => {
             onClick={handleReq}
             className={`p-1 border-1 rounded-lg border-gray-300 cursor-pointer ${
               text === "Pending Requests" ? "bg-blue-900 text-white" : ""
-            }`}
+              }`}
           >
             Pending Requests
           </div>

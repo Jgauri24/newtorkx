@@ -4,7 +4,7 @@ import GoogleLoginComp from '../../components/GoogleLogin/GoogleLogin'
 
 const SignUp = () => {
     return (
-        <div className='w-full flex flex-col items-center justify-center'>
+        <div className='min-h-[85vh] max-w-7xl mx-auto pt-20 pb-8 w-full flex flex-col items-center justify-center'>
             <div className="text-4xl mb-5">
                 Unlock your full professional potential
             </div>
@@ -33,10 +33,10 @@ const SignUp = () => {
 
 
                 </div>
-                <div className=""><GoogleLoginComp/></div>
+                <div className=""><GoogleLoginComp /></div>
             </div>
             <div
-            className='mt-4 mb-10'>Already on NetworkX? <Link to="/login" className='text-blue-800 cursor-pointer'>Sign In</Link></div>
+                className='mt-4 mb-10'>Already on NetworkX? <Link to="/login" className='text-blue-800 cursor-pointer'>Sign In</Link></div>
         </div>
     )
 }

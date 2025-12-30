@@ -8,7 +8,7 @@ const Modal = (props) => {
           <div className="flex gap-4 items-center">
             <div className="text-2xl">{props.title}</div>
           </div>
-          <div onClick={()=>props.closeModal()}className="cursor-pointer">
+          <div onClick={()=>props.closeModal()} className="cursor-pointer">
             <CloseIcon />
           </div>
       

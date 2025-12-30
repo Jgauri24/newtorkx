@@ -9,14 +9,22 @@ import ArticleIcon from "@mui/icons-material/Article";
 import Advertisment from "../../components/Advertisment/Advertisment";
 import Modal from "../../components/Modal/Modal";
 import AddModal from "../../components/AddModal/AddModal";
+import { RingLoader } from "react-spinners";
+
+
+
+
+
 const Feed = () => {
   const [addPostModal, setAddPostModal] = useState(false);
   const handleOpenPostModal=()=>{
     setAddPostModal(prev=>!prev)
   }
   return (
+
     <div className="px-5 xl:px-50 py-9 flex gap-5 w-full mt-5 bg-gray-100">
       {/* left */}
+
       <div className="w-[21%] sm:block sm:w-[23%] hidden py-5">
         <div className="h-fit">
           <ProfileCard />
@@ -44,20 +52,20 @@ const Feed = () => {
                 alt="post1"
                 className="rounded-4xl w-13 h-13 border-2 border-white cursor-pointer"
               />
-              <div onClick={()=>setAddPostModal(true)} className="w-full border-1 py-3 px-3 rounded-3xl cursor-pointer hover:bg-gray-100">
+              <div onClick={() => setAddPostModal(true)} className="w-full border-1 py-3 px-3 rounded-3xl cursor-pointer hover:bg-gray-100">
                 Share a post
               </div>
             </div>
             <div className="w-full flex mt-3">
-              <div onClick={()=>setAddPostModal(true)} className="flex gap-2 p-2 cursor-pointer justify-center rounded-lg w-[33%] hover:bg-gray-100">
+              <div onClick={() => setAddPostModal(true)} className="flex gap-2 p-2 cursor-pointer justify-center rounded-lg w-[33%] hover:bg-gray-100">
                 <VideoCallIcon sx={{ color: "blue" }} />
                 Video
               </div>
-              <div onClick={()=>setAddPostModal(true)} className="flex gap-2 p-2 cursor-pointer justify-center rounded-lg w-[33%] hover:bg-gray-100">
+              <div onClick={() => setAddPostModal(true)} className="flex gap-2 p-2 cursor-pointer justify-center rounded-lg w-[33%] hover:bg-gray-100">
                 <InsertPhotoIcon sx={{ color: "red" }} />
                 Photos
               </div>
-              <div onClick={()=>setAddPostModal(true)} className="flex gap-2 p-2 cursor-pointer justify-center rounded-lg w-[33%] hover:bg-gray-100">
+              <div onClick={() => setAddPostModal(true)} className="flex gap-2 p-2 cursor-pointer justify-center rounded-lg w-[33%] hover:bg-gray-100">
                 <ArticleIcon sx={{ color: "green" }} />
                 Article
               </div>
@@ -89,10 +97,17 @@ const Feed = () => {
           <Advertisment />
         </div>
       </div>
-     { addPostModal && <Modal closeModal={handleOpenPostModal} title={""}>
+      {addPostModal && <Modal closeModal={handleOpenPostModal} title={""}>
         <AddModal />
       </Modal>}
+
+      {/* <div className="fixed inset-0 flex items-center justify-center bg-white z-[9999]">
+    <RingLoader color="#0B1F4B" size={70} />
+  </div> */}
+
     </div>
+
+
   );
 };
 

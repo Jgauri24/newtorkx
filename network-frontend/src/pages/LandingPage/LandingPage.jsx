@@ -5,12 +5,12 @@ import GoogleLoginComp from '../../components/GoogleLogin/GoogleLogin'
 
 const LandingPage = () => {
     return (
-        <div className=' my-20 py-10 md:pl-[120px] px-5 md:flex justify-between items-center gap-6'>
+        <div className='min-h-[calc(100vh-80px)] w-full mx-auto pt-20 pb-8 md:pl-[120px] px-5 md:flex justify-between items-center gap-6'>
             <div className="md:w-[40%] flex flex-col items-center md:items-start text-center md:text-left ">
                 <div className="text-3xl md:text-4xl text-gray-700">
                     Discover your perfect role and shape your future
                 </div>
-                <div className="mt-6  px-6 py-3  rounded-3xl w-[70%] text-white cursor-pointer "><GoogleLoginComp/></div>
+                <div className="mt-6  px-6 py-3  rounded-3xl w-[70%] text-white cursor-pointer "><GoogleLoginComp /></div>
                 <Link to={"/login"} className="mt-3 px-6 py-3 bg-white rounded-3xl flex items-center w-[70%] justify-center text-black hover:bg-gray-100 border-2 cursor-pointer">
                     Sign In with Email
                 </Link>
