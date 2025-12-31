@@ -1,13 +1,16 @@
 const express=require("express")
 const app=express()
+const cookieParser=require("cookie-parser")
 require("./connection")
-const PORT=3000
-app.get("/",(req,res)=>{
-    res.send({
-        msg:"you did it1"
-    })
-  
-})
+require("dotenv").config({path:"./config.env"}) || 3000
+const PORT=process.env.PORT 
+
+
+app.use(express.json())
+  app.use(cookieParser())
+
+const UserRoutes=require("./routes/user");
+app.use("/api/auth",UserRoutes)
 app.listen(PORT,()=>{
     console.log(`Server running on port ${PORT}`)
 })
