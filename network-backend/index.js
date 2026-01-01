@@ -11,8 +11,12 @@ app.use(express.json())
 
 const UserRoutes=require("./routes/user");
 const PostRoutes=require("./routes/post");
+const NotifsRoutes=require("./routes/notifs")
+const CommentRoutes=require("./routes/comment")
 app.use("/api/auth",UserRoutes)
 app.use("/api/post",PostRoutes)
+app.use("/api/notification",NotifsRoutes)
+app.use("/api/comment",CommentRoutes)
 app.listen(PORT,()=>{
     console.log(`Server running on port ${PORT}`)
 })

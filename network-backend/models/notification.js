@@ -13,10 +13,15 @@ const NotifSchema= new mongoose.Schema({
     },content:{
         type:String,
         required:true,
+
+    },type:{
+        type:String,
+        required:true,
         enum:["friendRequest","comment"]
-    },isRead:{
+    }
+    ,isRead:{
         type:Boolean,
-        default:""
+        default:false
     },postId:{
          type:String,
         default:""
